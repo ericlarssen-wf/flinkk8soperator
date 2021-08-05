@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: flink-operator-config
+data:
+  # this will need to be templatized
+  config: |-
+    operator:
+      ingressUrlFormat: {{ printf "{{$jobCluster}}.flink-lyft.com" | quote }}
+    logger:
+      level: 4
